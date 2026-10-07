@@ -1,0 +1,4919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pancha Mahabhuta | Our Green Future</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Kalam:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+    --bg:#06100c;
+    --bg2:#0a1510;
+    --card:#101b15;
+    --card2:#132019;
+
+    --green:#73ff9c;
+    --green2:#3ecb72;
+
+    --earth:#83a95d;
+    --earth2:#476b3b;
+
+    --water:#3bd1ed;
+    --water2:#187e9d;
+
+    --fire:#ff7650;
+    --fire2:#c8422d;
+
+    --air:#b9edff;
+    --air2:#5bb6d0;
+
+    --space:#a184ff;
+    --space2:#4c3892;
+
+    --gold:#e6bf70;
+
+    --text:#edf5ef;
+    --muted:#8d9e95;
+
+    --border:rgba(255,255,255,.09);
+    --shadow:0 30px 90px rgba(0,0,0,.4);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(115,255,156,.08),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(59,209,237,.07),transparent 25%),
+        radial-gradient(circle at 50% 80%,rgba(161,132,255,.05),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:'Outfit',Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* subtle paper/noise effect */
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:.025;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body.lock{
+    overflow:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+/* =========================
+   PAGE TRANSITION
+========================= */
+
+.page-transition{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:#06100c;
+    pointer-events:none;
+    transform:translateY(100%);
+    transition:transform .7s cubic-bezier(.77,0,.18,1);
+}
+
+.page-transition.active{
+    transform:translateY(0);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    position:fixed;
+    z-index:900;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1160px,93%);
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 22px;
+
+    background:rgba(6,16,12,.76);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.22);
+
+    transition:.35s;
+}
+
+nav:hover{
+    border-color:rgba(115,255,156,.16);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'DM Serif Display',serif;
+    font-size:20px;
+}
+
+.logo-dot{
+    width:11px;
+    height:11px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 18px var(--green);
+}
+
+.nav-links{
+    display:flex;
+    gap:3px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#9cacA4;
+    font-size:13px;
+    padding:10px 13px;
+    border-radius:11px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+    background:rgba(255,255,255,.06);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    width:min(1180px,92%);
+    margin:auto;
+    padding:115px 0;
+}
+
+.section-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:3px;
+    color:var(--green);
+    margin-bottom:16px;
+}
+
+.section-title{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:clamp(45px,7vw,78px);
+    line-height:.95;
+    letter-spacing:-2px;
+}
+
+.section-title span{
+    color:var(--green);
+}
+
+.description{
+    max-width:720px;
+    margin-top:22px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    width:100%;
+    padding:150px 6% 100px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(5px);
+    pointer-events:none;
+}
+
+.hero-glow.one{
+    width:650px;
+    height:650px;
+    left:-300px;
+    top:50px;
+    background:radial-gradient(circle,rgba(115,255,156,.13),transparent 68%);
+}
+
+.hero-glow.two{
+    width:600px;
+    height:600px;
+    right:-250px;
+    bottom:-200px;
+    background:radial-gradient(circle,rgba(59,209,237,.1),transparent 68%);
+}
+
+.hero-inner{
+    width:min(1180px,100%);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:9px 14px;
+    border:1px solid var(--border);
+    border-radius:100px;
+
+    background:rgba(255,255,255,.025);
+
+    color:#aebcb5;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+
+    margin-bottom:28px;
+}
+
+.hero-badge i{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero h1{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:clamp(70px,12vw,158px);
+    line-height:.76;
+    letter-spacing:-7px;
+}
+
+.hero h1 em{
+    display:block;
+    color:var(--green);
+    font-style:italic;
+}
+
+.hero-note{
+    margin-top:35px;
+    font-family:'Kalam',cursive;
+    font-size:21px;
+    color:#c6d0cb;
+    transform:rotate(-1deg);
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:35px;
+}
+
+.btn{
+    padding:14px 20px;
+    border-radius:13px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        background .3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    background:var(--green);
+    color:#06100b;
+    box-shadow:0 10px 30px rgba(115,255,156,.14);
+}
+
+.btn-primary:hover{
+    box-shadow:0 15px 40px rgba(115,255,156,.25);
+}
+
+.btn-outline{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.scroll-hint{
+    position:absolute;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#65756d;
+
+    animation:float 2.5s infinite ease-in-out;
+}
+
+@keyframes float{
+    50%{
+        transform:translate(-50%,7px);
+    }
+}
+
+/* =========================
+   ELEMENT INTRO
+========================= */
+
+.element-grid{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.element{
+    min-height:325px;
+    padding:24px;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.1);
+
+    cursor:pointer;
+
+    transition:
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        box-shadow .55s,
+        border-color .4s;
+}
+
+.element:hover{
+    transform:translateY(-12px) rotate(-.5deg);
+    box-shadow:0 30px 60px rgba(0,0,0,.32);
+}
+
+.element:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    right:-80px;
+    top:-80px;
+    background:rgba(255,255,255,.08);
+}
+
+.element-number{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    opacity:.65;
+}
+
+.element-icon{
+    font-size:57px;
+    margin:37px 0 18px;
+    filter:drop-shadow(0 12px 15px rgba(0,0,0,.2));
+    transition:.4s;
+}
+
+.element:hover .element-icon{
+    transform:scale(1.12) rotate(4deg);
+}
+
+.element h3{
+    font-family:'DM Serif Display',serif;
+    font-size:31px;
+}
+
+.element small{
+    display:block;
+    margin-top:3px;
+    opacity:.55;
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+}
+
+.element p{
+    font-size:12px;
+    line-height:1.55;
+    margin-top:10px;
+    opacity:.72;
+}
+
+.element .click{
+    position:absolute;
+    bottom:20px;
+    left:24px;
+    font-family:'Space Mono',monospace;
+    font-size:8px;
+    letter-spacing:1px;
+    opacity:.55;
+}
+
+.earth{
+    background:linear-gradient(145deg,#263d28,#63874e);
+}
+
+.water{
+    background:linear-gradient(145deg,#07384c,#20a8ca);
+}
+
+.fire{
+    background:linear-gradient(145deg,#521e15,#d85835);
+}
+
+.air{
+    background:linear-gradient(145deg,#335c6b,#8ddff0);
+    color:#071319;
+}
+
+.space{
+    background:linear-gradient(145deg,#19152f,#684ab7);
+}
+
+/* =========================
+   ELEMENT MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.modal.show{
+    display:flex;
+    animation:modalFade .35s ease;
+}
+
+@keyframes modalFade{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.element-window{
+    width:min(1050px,100%);
+    max-height:92vh;
+    overflow:auto;
+
+    padding:38px;
+
+    background:#0d1712;
+
+    border:1px solid var(--border);
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
+    animation:windowUp .45s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes windowUp{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.close{
+    position:absolute;
+    right:22px;
+    top:22px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.05);
+    color:white;
+
+    cursor:pointer;
+    font-size:21px;
+
+    transition:.3s;
+}
+
+.close:hover{
+    background:rgba(255,255,255,.12);
+    transform:rotate(90deg);
+}
+
+.modal-head{
+    padding:35px;
+    border-radius:24px;
+    display:flex;
+    gap:28px;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.modal-icon{
+    font-size:82px;
+}
+
+.modal-head h2{
+    font-family:'DM Serif Display',serif;
+    font-size:60px;
+    font-weight:400;
+}
+
+.modal-head .meaning{
+    font-family:'Kalam',cursive;
+    font-size:17px;
+    opacity:.7;
+    margin-top:4px;
+}
+
+.modal-head p{
+    margin-top:12px;
+    color:#aebbb4;
+    line-height:1.8;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.info-box{
+    padding:20px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.info-box span{
+    font-family:'Space Mono',monospace;
+    font-size:8px;
+    letter-spacing:1px;
+    color:#75857d;
+}
+
+.info-box strong{
+    display:block;
+    margin-top:9px;
+    font-size:19px;
+}
+
+.modal-content-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.info-section{
+    padding:25px;
+    background:#111d16;
+    border:1px solid var(--border);
+    border-radius:21px;
+}
+
+.info-section h3{
+    font-family:'DM Serif Display',serif;
+    font-size:28px;
+    font-weight:400;
+    margin-bottom:12px;
+}
+
+.info-section p{
+    color:#9caea4;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.info-section ul{
+    padding-left:20px;
+    color:#a7b5ae;
+    line-height:1.9;
+    font-size:13px;
+}
+
+.fact-strip{
+    margin-top:15px;
+    padding:16px;
+    border-radius:14px;
+    background:rgba(115,255,156,.05);
+    border-left:3px solid var(--green);
+    color:#b9c8c0;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================
+   PROJECT
+========================= */
+
+.project-layout{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.project-card{
+    background:linear-gradient(145deg,#101c15,#0b130f);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:34px;
+    position:relative;
+    overflow:hidden;
+}
+
+.project-card:after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    right:-120px;
+    bottom:-130px;
+    background:radial-gradient(circle,rgba(115,255,156,.08),transparent 65%);
+}
+
+.project-tag{
+    display:inline-block;
+    padding:7px 11px;
+    border-radius:100px;
+    background:rgba(115,255,156,.07);
+    color:var(--green);
+    font-family:'Space Mono',monospace;
+    font-size:8px;
+    letter-spacing:1px;
+}
+
+.project-card h3{
+    font-family:'DM Serif Display',serif;
+    font-size:40px;
+    font-weight:400;
+    margin-top:17px;
+}
+
+.project-card p{
+    color:#91a198;
+    line-height:1.85;
+    margin-top:14px;
+}
+
+.project-card p b{
+    color:#dce8e1;
+}
+
+.project-visual{
+    min-height:440px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(circle at 50% 40%,rgba(115,255,156,.08),transparent 38%),
+        linear-gradient(#0e1913,#09100c);
+
+    border-radius:28px;
+    border:1px solid var(--border);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.ground{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:95px;
+    background:#463322;
+    border-radius:50% 50% 0 0;
+}
+
+.plant{
+    width:170px;
+    height:270px;
+    position:relative;
+    z-index:3;
+}
+
+.stem{
+    position:absolute;
+    width:13px;
+    height:175px;
+    bottom:55px;
+    left:79px;
+    border-radius:20px;
+    background:linear-gradient(#65a84e,#32683d);
+}
+
+.leaf{
+    position:absolute;
+    width:85px;
+    height:42px;
+    background:#56a553;
+    border-radius:100% 0 100% 0;
+}
+
+.leaf.a{
+    left:4px;
+    top:105px;
+    transform:rotate(-30deg);
+}
+
+.leaf.b{
+    right:0;
+    top:70px;
+    transform:scaleX(-1) rotate(-30deg);
+}
+
+.leaf.c{
+    left:18px;
+    top:40px;
+    transform:rotate(-35deg);
+}
+
+.drop{
+    position:absolute;
+    width:9px;
+    height:17px;
+    background:#45d9ff;
+    border-radius:80% 20% 80% 20%;
+    transform:rotate(45deg);
+    opacity:0;
+}
+
+.watering .drop{
+    animation:dropFall 1.6s infinite;
+}
+
+.drop.one{
+    left:43%;
+    animation-delay:.1s;
+}
+
+.drop.two{
+    left:50%;
+    animation-delay:.5s;
+}
+
+.drop.three{
+    left:57%;
+    animation-delay:.9s;
+}
+
+@keyframes dropFall{
+    0%{
+        top:8%;
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        top:72%;
+        opacity:0;
+    }
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.step{
+    padding:25px;
+    min-height:210px;
+
+    background:#0d1712;
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    transition:.35s;
+}
+
+.step:hover{
+    transform:translateY(-6px);
+    border-color:rgba(115,255,156,.2);
+}
+
+.step-number{
+    font-family:'Space Mono',monospace;
+    color:var(--green);
+    font-size:11px;
+}
+
+.step-icon{
+    font-size:34px;
+    margin:25px 0 12px;
+}
+
+.step h3{
+    font-family:'DM Serif Display',serif;
+    font-size:25px;
+    font-weight:400;
+}
+
+.step p{
+    margin-top:8px;
+    color:#7f9087;
+    line-height:1.65;
+    font-size:13px;
+}
+
+/* =========================
+   SENSOR
+========================= */
+
+.sensor-layout{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:20px;
+}
+
+.sensor-box{
+    padding:35px;
+    border-radius:28px;
+
+    background:#0d1712;
+    border:1px solid var(--border);
+}
+
+.sensor-number{
+    font-family:'Space Mono',monospace;
+    font-size:68px;
+    color:var(--green);
+}
+
+.sensor-number span{
+    font-size:18px;
+    color:#66766e;
+}
+
+.sensor-sub{
+    color:#64756c;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.progress{
+    height:14px;
+    background:#1b2821;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:27px;
+}
+
+.progress-fill{
+    width:68%;
+    height:100%;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff6548,#e9d15d,#68ff98);
+    transition:width .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.status{
+    margin-top:18px;
+    padding:13px;
+    border-radius:12px;
+
+    background:rgba(59,130,246,.10);
+    color:var(--green);
+
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+}
+
+.sensor-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:20px;
+}
+
+.sensor-buttons button{
+    padding:10px 13px;
+    border-radius:10px;
+
+    border:1px solid var(--border);
+    background:#111c16;
+    color:#9aa9a2;
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.sensor-buttons button:hover{
+    background:#1a2921;
+    color:white;
+}
+
+/* =========================
+   WATER ALERT
+========================= */
+
+.alert{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(15px);
+}
+
+.alert.show{
+    display:flex;
+    animation:modalFade .25s;
+}
+
+.alert-box{
+    width:min(510px,100%);
+    padding:40px;
+
+    text-align:center;
+
+    background:#101914;
+    border:1px solid rgba(255,100,70,.35);
+    border-radius:30px;
+
+    box-shadow:0 30px 100px rgba(255,70,40,.1);
+
+    animation:windowUp .4s;
+}
+
+.alert-icon{
+    font-size:65px;
+    animation:alertPulse 1.3s infinite;
+}
+
+@keyframes alertPulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+.alert-box h2{
+    margin-top:15px;
+    font-family:'DM Serif Display',serif;
+    font-size:45px;
+    font-weight:400;
+    color:#ff8263;
+}
+
+.alert-box p{
+    color:#9daaa4;
+    line-height:1.75;
+    margin:12px 0 20px;
+}
+
+.alert-value{
+    color:#ff8263;
+    font-family:'Space Mono',monospace;
+    font-size:23px;
+}
+
+/* =========================
+   GREEN AI
+========================= */
+
+.ai-layout{
+    margin-top:55px;
+
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:18px;
+}
+
+.ai-intro{
+    padding:25px;
+
+    background:#0d1712;
+    border:1px solid var(--border);
+    border-radius:23px;
+}
+
+.ai-orb{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle at 35% 30%,#e0ffe9,#51ff8a);
+
+    box-shadow:
+        0 0 25px rgba(115,255,156,.3),
+        inset 0 0 15px rgba(255,255,255,.5);
+
+    margin-bottom:22px;
+}
+
+.ai-intro h3{
+    font-family:'DM Serif Display',serif;
+    font-size:32px;
+    font-weight:400;
+}
+
+.ai-intro p{
+    margin-top:10px;
+    color:#84958c;
+    line-height:1.7;
+    font-size:13px;
+}
+
+.ai-status{
+    margin-top:25px;
+    padding:10px;
+    border-radius:10px;
+    background:rgba(59,130,246,.10);
+    color:var(--green);
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+}
+
+.chat{
+    min-height:620px;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#0d1712;
+    border:1px solid var(--border);
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.chat-header{
+    padding:20px 23px;
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.chat-header strong{
+    display:block;
+}
+
+.chat-header small{
+    color:#63746b;
+}
+
+.online{
+    color:var(--green);
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+}
+
+.chat-body{
+    flex:1;
+    overflow-y:auto;
+    padding:25px;
+}
+
+.message{
+    max-width:82%;
+    margin-bottom:20px;
+}
+
+.message.user{
+    margin-left:auto;
+}
+
+.user-bubble{
+    padding:15px 17px;
+    border-radius:17px;
+    background:#244431;
+    color:#dceee2;
+    line-height:1.6;
+}
+
+.ai-answer{
+    padding:23px;
+    border-radius:20px;
+
+    background:linear-gradient(145deg,#15251b,#101a14);
+    border:1px solid rgba(115,255,156,.13);
+}
+
+.ai-answer h3{
+    font-family:'DM Serif Display',serif;
+    font-size:29px;
+    font-weight:400;
+    color:var(--green);
+}
+
+.ai-answer p{
+    color:#b8c6be;
+    line-height:1.8;
+    margin-top:11px;
+}
+
+.ai-answer ul{
+    margin:15px 0 0 20px;
+    color:#97a79f;
+    line-height:1.8;
+}
+
+.ai-tip{
+    margin-top:17px;
+    padding:13px;
+
+    background:rgba(230,191,112,.06);
+    border-radius:12px;
+
+    color:#d9bd7e;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.typing{
+    display:inline-flex;
+    gap:5px;
+    padding:14px 17px;
+    background:#162019;
+    border-radius:15px;
+}
+
+.typing i{
+    width:6px;
+    height:6px;
+    background:#78ff9e;
+    border-radius:50%;
+    animation:type .8s infinite;
+}
+
+.typing i:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing i:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes type{
+    50%{
+        transform:translateY(-4px);
+        opacity:.5;
+    }
+}
+
+.quick{
+    padding:0 15px 10px;
+
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.quick button{
+    padding:8px 11px;
+
+    border:1px solid var(--border);
+    border-radius:9px;
+
+    background:#121d17;
+    color:#899991;
+
+    cursor:pointer;
+    font-size:10px;
+
+    transition:.25s;
+}
+
+.quick button:hover{
+    color:white;
+    background:#1a2921;
+}
+
+.chat-input{
+    padding:15px;
+
+    display:flex;
+    gap:8px;
+
+    border-top:1px solid var(--border);
+}
+
+.chat-input input{
+    flex:1;
+
+    padding:14px;
+
+    border:1px solid rgba(255,255,255,.06);
+    outline:none;
+
+    background:#070d09;
+    color:white;
+
+    border-radius:12px;
+}
+
+.chat-input button{
+    width:48px;
+    border:none;
+    border-radius:12px;
+    background:var(--green);
+    cursor:pointer;
+}
+
+/* =========================
+   BASIC INFO
+========================= */
+
+.basic-grid{
+    margin-top:50px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.basic-card{
+    padding:27px;
+
+    background:#0d1712;
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    transition:.35s;
+}
+
+.basic-card:hover{
+    transform:translateY(-5px);
+}
+
+.basic-card .number{
+    color:var(--green);
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+}
+
+.basic-card h3{
+    font-family:'DM Serif Display',serif;
+    font-size:27px;
+    font-weight:400;
+    margin-top:18px;
+}
+
+.basic-card p{
+    color:#84958c;
+    line-height:1.75;
+    font-size:13px;
+    margin-top:9px;
+}
+
+/* =========================
+   SOURCES / FOOTER
+========================= */
+
+.sources{
+    border-top:1px solid var(--border);
+}
+
+.source-grid{
+    margin-top:45px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.source{
+    padding:22px;
+    border-radius:19px;
+    background:#0d1712;
+    border:1px solid var(--border);
+}
+
+.source strong{
+    font-family:'DM Serif Display',serif;
+    font-size:21px;
+    font-weight:400;
+}
+
+.source p{
+    margin-top:7px;
+    color:#788980;
+    font-size:12px;
+    line-height:1.65;
+}
+
+footer{
+    padding:60px 6%;
+    text-align:center;
+    border-top:1px solid var(--border);
+    color:#617169;
+    line-height:1.7;
+}
+
+footer strong{
+    color:var(--green);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .element-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-layout,
+    .sensor-layout{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ai-layout{
+        grid-template-columns:1fr;
+    }
+
+    .ai-intro{
+        display:flex;
+        align-items:center;
+        gap:18px;
+    }
+
+    .ai-intro .ai-orb{
+        margin:0;
+        flex-shrink:0;
+    }
+
+    .ai-status{
+        display:none;
+    }
+
+    .basic-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    nav{
+        width:95%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero{
+        padding-top:140px;
+    }
+
+    .hero h1{
+        font-size:70px;
+        letter-spacing:-4px;
+    }
+
+    .element-grid{
+        grid-template-columns:1fr;
+    }
+
+    .element{
+        min-height:270px;
+    }
+
+    .modal{
+        padding:8px;
+    }
+
+    .element-window{
+        padding:20px;
+        max-height:96vh;
+    }
+
+    .modal-head{
+        flex-direction:column;
+        text-align:center;
+        padding:25px;
+    }
+
+    .modal-head h2{
+        font-size:47px;
+    }
+
+    .info-grid,
+    .modal-content-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-card{
+        padding:25px;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .basic-grid,
+    .source-grid{
+        grid-template-columns:1fr;
+    }
+
+    .sensor-number{
+        font-size:50px;
+    }
+
+    .message{
+        max-width:95%;
+    }
+
+    .chat{
+        min-height:600px;
+    }
+}
+
+/* =========================================================
+   NAVY / LIGHT GRAY / BLUE THEME  (60 / 30 / 10)
+   60% Navy #0B1F3B  ·  30% Light Gray #E5E7EB  ·  10% Blue #3B82F6
+   Colour redesign only — content & functionality preserved
+========================================================= */
+
+:root{
+    --bg:#0B1F3B;
+    --bg2:#09182E;
+    --card:#112B4F;
+    --card2:#143360;
+
+    --navy:#0B1F3B;
+    --gray:#E5E7EB;
+    --blue:#3B82F6;
+
+    --green:#3B82F6;
+    --green2:#2563EB;
+
+    --earth:#5B8DEF;
+    --earth2:#2F5FC4;
+
+    --water:#60A5FA;
+    --water2:#2B7CD3;
+
+    --fire:#3B82F6;
+    --fire2:#1D4ED8;
+
+    --air:#E5E7EB;
+    --air2:#CBD5E1;
+
+    --space:#94A3B8;
+    --space2:#475569;
+
+    --gold:#93C5FD;
+
+    --text:#E5E7EB;
+    --muted:#9AA9BE;
+
+    --border:rgba(229,231,235,.12);
+    --shadow:0 30px 90px rgba(2,8,20,.5);
+}
+
+html{
+    scroll-behavior:smooth;
+    background:#0B1F3B;
+}
+
+body{
+    color:var(--text);
+    background:
+        radial-gradient(circle at 8% 8%,rgba(59,130,246,.10),transparent 28%),
+        radial-gradient(circle at 92% 18%,rgba(229,231,235,.05),transparent 25%),
+        linear-gradient(180deg,#0B1F3B 0%,#0A1B33 55%,#0B1F3B 100%);
+    font-family:'Outfit',Arial,sans-serif;
+}
+
+body:before{
+    opacity:.04;
+    background-image:
+        linear-gradient(rgba(229,231,235,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(229,231,235,.06) 1px,transparent 1px);
+    background-size:48px 48px,48px 48px;
+}
+
+.page-transition{
+    background:#3B82F6;
+    transition:transform .9s cubic-bezier(.77,0,.18,1);
+}
+
+/* Navigation */
+nav{
+    top:20px;
+    height:68px;
+    padding:0 25px;
+    background:rgba(11,31,59,.82);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+    border:1px solid rgba(229,231,235,.12);
+    border-radius:10px;
+    box-shadow:0 18px 50px rgba(2,8,20,.35);
+}
+
+nav:after{
+    content:"";
+    position:absolute;
+    left:22px;
+    right:22px;
+    bottom:-4px;
+    height:2px;
+    background:#3B82F6;
+    opacity:.7;
+    border-radius:2px;
+}
+
+nav:hover{
+    border-color:rgba(59,130,246,.45);
+}
+
+.logo{
+    color:#E5E7EB;
+    letter-spacing:.2px;
+}
+
+.logo-dot{
+    width:12px;
+    height:12px;
+    background:#3B82F6;
+    border-radius:2px;
+    transform:rotate(45deg);
+    box-shadow:0 0 14px rgba(59,130,246,.5);
+}
+
+.nav-links a{
+    color:#C5CEDB;
+    border-radius:6px;
+}
+
+.nav-links a:hover{
+    color:#3B82F6;
+    background:rgba(59,130,246,.10);
+}
+
+/* Typography */
+.section-label{
+    color:#3B82F6;
+    letter-spacing:3.5px;
+}
+
+.section-title{
+    color:#FFFFFF;
+}
+
+.section-title span{
+    color:#3B82F6;
+}
+
+.description{
+    color:#B4BFD0;
+}
+
+/* Hero */
+.hero{
+    background:
+        radial-gradient(circle at 72% 28%,rgba(59,130,246,.14),transparent 26%),
+        radial-gradient(circle at 20% 70%,rgba(229,231,235,.04),transparent 30%);
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:520px;
+    height:520px;
+    right:-150px;
+    top:90px;
+    border:1px solid rgba(59,130,246,.2);
+    border-radius:50%;
+    box-shadow:0 0 0 28px rgba(59,130,246,.03),
+               0 0 0 58px rgba(59,130,246,.02);
+}
+
+.hero-glow.one{
+    background:radial-gradient(circle,rgba(59,130,246,.18),transparent 68%);
+}
+
+.hero-glow.two{
+    background:radial-gradient(circle,rgba(229,231,235,.07),transparent 68%);
+}
+
+.hero-badge{
+    border:1px solid rgba(59,130,246,.3);
+    background:rgba(59,130,246,.08);
+    color:#C5CEDB;
+    border-radius:6px;
+    box-shadow:0 8px 30px rgba(2,8,20,.25);
+}
+
+.hero-badge i{
+    background:#3B82F6;
+    box-shadow:0 0 10px rgba(59,130,246,.7);
+}
+
+.hero h1{
+    color:#FFFFFF;
+    text-shadow:0 8px 30px rgba(2,8,20,.35);
+}
+
+.hero h1 em{
+    color:#3B82F6;
+}
+
+.hero-note{
+    color:#B4BFD0;
+}
+
+.btn{
+    border-radius:8px;
+    letter-spacing:.2px;
+}
+
+.btn-primary{
+    background:#3B82F6;
+    color:#FFFFFF;
+    box-shadow:0 12px 30px rgba(59,130,246,.28);
+}
+
+.btn-primary:hover{
+    background:#2563EB;
+    box-shadow:0 15px 40px rgba(59,130,246,.4);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid rgba(229,231,235,.35);
+    color:#E5E7EB;
+}
+
+.btn-outline:hover{
+    background:rgba(229,231,235,.08);
+    border-color:#E5E7EB;
+}
+
+.scroll-hint{
+    color:#8E9CB3;
+}
+
+/* Five elements */
+.element-grid{
+    gap:16px;
+}
+
+.element{
+    min-height:325px;
+    border-radius:12px;
+    border:1px solid rgba(229,231,235,.12);
+    box-shadow:0 15px 35px rgba(2,8,20,.35);
+    color:#FFFFFF;
+}
+
+.element:hover{
+    transform:translateY(-9px);
+    box-shadow:0 25px 55px rgba(2,8,20,.5);
+}
+
+.element:before{
+    background:rgba(255,255,255,.12);
+}
+
+.element-number{
+    opacity:.8;
+}
+
+.element h3{
+    letter-spacing:.2px;
+}
+
+.element p{
+    opacity:.88;
+}
+
+.earth{
+    background:linear-gradient(145deg,#14346B,#3B6FD0);
+}
+
+.water{
+    background:linear-gradient(145deg,#0E4A7A,#3B82F6);
+}
+
+.fire{
+    background:linear-gradient(145deg,#1E3A8A,#2563EB);
+}
+
+.air{
+    background:linear-gradient(145deg,#CBD5E1,#E5E7EB);
+    color:#0B1F3B;
+}
+
+.space{
+    background:linear-gradient(145deg,#1B2A47,#475569);
+}
+
+/* Modals */
+.modal{
+    background:rgba(4,12,26,.62);
+    backdrop-filter:blur(18px);
+}
+
+.element-window{
+    background:#0F2748;
+    border:1px solid rgba(229,231,235,.14);
+    border-radius:14px;
+    box-shadow:0 35px 100px rgba(2,8,20,.6);
+}
+
+.close{
+    background:rgba(229,231,235,.08);
+    color:#E5E7EB;
+    border:1px solid rgba(229,231,235,.18);
+    border-radius:8px;
+}
+
+.close:hover{
+    background:#3B82F6;
+    color:#FFFFFF;
+}
+
+.modal-head{
+    border:1px solid rgba(229,231,235,.12);
+}
+
+.modal-head h2{
+    color:#FFFFFF;
+}
+
+.modal-head p,
+.info-section p,
+.info-section ul{
+    color:#B4BFD0;
+}
+
+.info-box,
+.info-section{
+    background:#132F57;
+    border:1px solid rgba(229,231,235,.10);
+}
+
+.info-box span{
+    color:#8E9CB3;
+}
+
+.fact-strip{
+    background:rgba(59,130,246,.10);
+    border-left:3px solid #3B82F6;
+    color:#D3DAE6;
+}
+
+/* Project / cards */
+.project-card,
+.sensor-box,
+.step,
+.basic-card,
+.source,
+.ai-intro,
+.chat{
+    background:rgba(17,43,79,.78);
+    border:1px solid rgba(229,231,235,.11);
+    box-shadow:0 14px 40px rgba(2,8,20,.28);
+}
+
+.project-card{
+    border-radius:12px;
+}
+
+.project-card:after{
+    background:radial-gradient(circle,rgba(59,130,246,.14),transparent 65%);
+}
+
+.project-tag{
+    background:rgba(59,130,246,.14);
+    color:#7FB0FA;
+}
+
+.project-card p,
+.step p,
+.basic-card p,
+.source p,
+.ai-intro p{
+    color:#B4BFD0;
+}
+
+.project-visual{
+    background:
+        radial-gradient(circle at 50% 40%,rgba(59,130,246,.2),transparent 40%),
+        linear-gradient(#0F2748,#0A1B33);
+    border:1px solid rgba(229,231,235,.11);
+}
+
+.ground{
+    background:#475569;
+}
+
+/* Sensor */
+.sensor-number{
+    color:#3B82F6;
+}
+
+.progress{
+    background:rgba(229,231,235,.14);
+}
+
+.progress-fill{
+    background:linear-gradient(90deg,#1D4ED8,#3B82F6,#93C5FD);
+}
+
+.status{
+    background:rgba(59,130,246,.10);
+    color:#7FB0FA;
+}
+
+.sensor-buttons button,
+.quick button{
+    background:rgba(229,231,235,.07);
+    border:1px solid rgba(229,231,235,.16);
+    color:#D3DAE6;
+}
+
+.sensor-buttons button:hover,
+.quick button:hover{
+    background:#3B82F6;
+    border-color:#3B82F6;
+    color:#FFFFFF;
+}
+
+/* Water alert */
+.alert{
+    background:rgba(4,12,26,.7);
+}
+
+.alert-box{
+    background:#E5E7EB;
+    border:1px solid rgba(59,130,246,.45);
+    box-shadow:0 30px 100px rgba(2,8,20,.5);
+}
+
+.alert-box h2,
+.alert-value{
+    color:#2563EB;
+}
+
+.alert-box p{
+    color:#3B4A63;
+}
+
+/* GreenAI */
+.ai-orb{
+    background:
+        radial-gradient(circle at 35% 30%,#EAF2FF,#3B82F6);
+    box-shadow:
+        0 0 25px rgba(59,130,246,.45),
+        inset 0 0 15px rgba(255,255,255,.55);
+}
+
+.ai-status,
+.online{
+    color:#60A5FA;
+}
+
+.chat-header{
+    border-bottom:1px solid rgba(229,231,235,.12);
+}
+
+.chat-body{
+    background:rgba(8,22,44,.55);
+}
+
+.user-bubble{
+    background:#3B82F6;
+    color:#FFFFFF;
+}
+
+.ai-answer{
+    background:#E5E7EB;
+    border:1px solid rgba(229,231,235,.4);
+}
+
+.ai-answer h3{
+    color:#2563EB;
+}
+
+.ai-answer p,
+.ai-answer ul{
+    color:#2B3A52;
+}
+
+.ai-tip{
+    background:rgba(59,130,246,.12);
+    color:#1D4ED8;
+}
+
+.typing{
+    background:rgba(229,231,235,.14);
+}
+
+.typing i{
+    background:#60A5FA;
+}
+
+.chat-input{
+    border-top:1px solid rgba(229,231,235,.12);
+    background:#0F2748;
+}
+
+.chat-input input{
+    background:#E5E7EB;
+    color:#0B1F3B;
+    border:1px solid rgba(229,231,235,.3);
+}
+
+.chat-input button{
+    background:#3B82F6;
+    color:white;
+}
+
+/* Section separators */
+section{
+    position:relative;
+}
+
+section:not(.sources):after{
+    content:"";
+    display:block;
+    width:70px;
+    height:2px;
+    margin:95px auto -97px;
+    background:#3B82F6;
+    opacity:.45;
+}
+
+/* Light-gray band (the 30% secondary surface) */
+.sources{
+    --text:#0B1F3B;
+    --muted:#44536B;
+    background:#E5E7EB;
+    color:#0B1F3B;
+    border-top:1px solid rgba(11,31,59,.08);
+    box-shadow:0 0 0 100vmax #E5E7EB;
+    clip-path:inset(0 -100vmax);
+}
+
+.sources .section-title,
+.sources h2,
+.sources h3,
+.sources h4,
+.sources strong{
+    color:#0B1F3B;
+}
+
+.sources .section-title span{
+    color:#2563EB;
+}
+
+.sources .section-label{
+    color:#2563EB;
+}
+
+.sources .description,
+.sources p{
+    color:#44536B;
+}
+
+.sources .source{
+    background:#FFFFFF;
+    border:1px solid rgba(11,31,59,.10);
+    box-shadow:0 14px 40px rgba(11,31,59,.08);
+}
+
+.sources .source p{
+    color:#44536B;
+}
+
+.sources a{
+    color:#2563EB;
+}
+
+footer{
+    background:#08172C;
+    border-top:1px solid rgba(229,231,235,.10);
+    color:#9AA9BE;
+}
+
+footer strong{
+    color:#3B82F6;
+}
+
+@keyframes float{
+    50%{transform:translate(-50%,5px);}
+}
+
+@media(max-width:650px){
+    nav{
+        width:95%;
+        border-radius:8px;
+    }
+
+    .hero:before{
+        width:320px;
+        height:320px;
+        right:-150px;
+    }
+}
+
+
+/* =========================================================
+   GREENAI SPACE PAGE  (3D scene + chat)
+========================================================= */
+.ai-page{
+    position:fixed;
+    inset:0;
+    z-index:1500;
+    overflow-y:auto;
+    overflow-x:hidden;
+    display:none;
+    opacity:0;
+    transition:opacity .5s ease;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(59,130,246,.16),transparent 45%),
+        linear-gradient(180deg,#071428 0%,#0B1F3B 60%,#09182E 100%);
+}
+
+.ai-page.show{
+    display:block;
+}
+
+.ai-page.visible{
+    opacity:1;
+}
+
+.ai-topbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    max-width:1200px;
+    margin:18px auto 0;
+    padding:0 22px;
+    height:64px;
+    width:calc(100% - 40px);
+    background:rgba(11,31,59,.78);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+    border:1px solid rgba(229,231,235,.12);
+    border-radius:10px;
+    box-shadow:0 18px 50px rgba(2,8,20,.35);
+}
+
+.ai-topbar .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#E5E7EB;
+    font-family:'DM Serif Display',serif;
+    font-size:21px;
+}
+
+.ai-back{
+    padding:10px 18px;
+    border-radius:8px;
+    border:1px solid rgba(229,231,235,.3);
+    background:transparent;
+    color:#E5E7EB;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.ai-back:hover{
+    background:#3B82F6;
+    border-color:#3B82F6;
+    color:#fff;
+}
+
+.ai-scene-wrap{
+    position:relative;
+    max-width:1200px;
+    margin:22px auto 0;
+    padding:0 20px;
+}
+
+.ai-scene-head{
+    position:absolute;
+    z-index:5;
+    left:50px;
+    top:34px;
+    pointer-events:none;
+}
+
+.ai-scene-head .section-label{
+    margin-bottom:10px;
+}
+
+.ai-scene-head h1{
+    font-family:'DM Serif Display',serif;
+    font-weight:400;
+    font-size:clamp(38px,6vw,76px);
+    line-height:.95;
+    color:#fff;
+    text-shadow:0 8px 30px rgba(2,8,20,.6);
+}
+
+.ai-scene-head h1 em{
+    color:#3B82F6;
+}
+
+.ai-scene{
+    position:relative;
+    height:min(78vh,720px);
+    min-height:460px;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(229,231,235,.12);
+    background:
+        radial-gradient(circle at 50% 50%,#0F2A52 0%,#081529 55%,#050E1C 100%);
+    box-shadow:0 30px 90px rgba(2,8,20,.55),
+               inset 0 0 120px rgba(59,130,246,.08);
+}
+
+#aiSpace{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    cursor:grab;
+    touch-action:pan-y;
+}
+
+#aiSpace.dragging{
+    cursor:grabbing;
+}
+
+.ai-scene-hint{
+    position:absolute;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    padding:9px 16px;
+    border-radius:999px;
+    background:rgba(11,31,59,.7);
+    border:1px solid rgba(229,231,235,.14);
+    color:#C5CEDB;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    pointer-events:none;
+    white-space:nowrap;
+}
+
+.ai-legend{
+    position:absolute;
+    right:18px;
+    top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    padding:14px 16px;
+    border-radius:12px;
+    background:rgba(11,31,59,.7);
+    border:1px solid rgba(229,231,235,.12);
+    backdrop-filter:blur(10px);
+    font-size:12.5px;
+    color:#D3DAE6;
+}
+
+.ai-legend span{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.ai-legend i{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.ai-scroll-cue{
+    text-align:center;
+    margin:26px 0 0;
+    color:#8E9CB3;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.ai-chat-zone{
+    max-width:1200px;
+    margin:0 auto;
+    padding:40px 20px 90px;
+}
+
+.ai-chat-zone .section-title{
+    font-size:clamp(34px,4.6vw,58px);
+}
+
+.ai-chat-zone .ai-layout{
+    margin-top:40px;
+}
+
+.ai-enter{
+    margin-top:34px;
+}
+
+@media(max-width:800px){
+    .ai-scene-head{left:36px;top:26px;}
+    .ai-legend{display:none;}
+    .ai-chat-zone .ai-layout{grid-template-columns:1fr;}
+}
+
+
+.ai-info{
+    position:absolute;
+    left:18px;
+    bottom:60px;
+    width:min(300px,calc(100% - 36px));
+    padding:18px 20px;
+    border-radius:14px;
+    background:rgba(11,31,59,.88);
+    border:1px solid rgba(59,130,246,.4);
+    backdrop-filter:blur(12px);
+    opacity:0;
+    transform:translateY(10px);
+    pointer-events:none;
+    transition:.3s;
+}
+.ai-info.show{opacity:1;transform:none;pointer-events:auto;}
+.ai-info small{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#60A5FA;}
+.ai-info h3{font-family:'DM Serif Display',serif;font-weight:400;font-size:28px;color:#fff;margin:2px 0 6px;}
+.ai-info p{font-size:13.5px;line-height:1.6;color:#C5CEDB;}
+.ai-info button{position:absolute;right:10px;top:8px;background:none;border:0;color:#9AA9BE;font-size:22px;cursor:pointer;}
+.ai-info button:hover{color:#fff;}
+
+/* =========================================================
+   SMOOTH PAGE TRANSITION  (circle reveal + glowing orb)
+========================================================= */
+.page-transition{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:22px;
+    pointer-events:none;
+    visibility:hidden;
+    opacity:1;
+    transform:none !important;
+    background:radial-gradient(circle at 50% 50%,#12315C 0%,#0B1F3B 45%,#050E1C 100%) !important;
+    clip-path:circle(0% at var(--cx,50%) var(--cy,50%));
+    transition:clip-path .7s cubic-bezier(.7,0,.2,1), opacity .55s ease, visibility 0s .7s !important;
+}
+
+.page-transition.active{
+    visibility:visible;
+    pointer-events:all;
+    clip-path:circle(150% at var(--cx,50%) var(--cy,50%));
+    transition:clip-path .7s cubic-bezier(.7,0,.2,1), opacity .55s ease, visibility 0s !important;
+}
+
+.page-transition.active.leaving{
+    opacity:0;
+    pointer-events:none;
+}
+
+.pt-orb{
+    position:relative;
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#FFFFFF,#3B82F6 60%,#1D4ED8);
+    box-shadow:0 0 40px rgba(59,130,246,.7);
+    opacity:0;
+    transform:scale(.4);
+    transition:opacity .35s ease .3s, transform .5s cubic-bezier(.2,.8,.2,1) .3s;
+}
+
+.pt-orb:before,
+.pt-orb:after{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:50%;
+    border:1.5px solid rgba(96,165,250,.7);
+    animation:ptRing 1.4s ease-out infinite;
+}
+
+.pt-orb:after{
+    animation-delay:.7s;
+}
+
+@keyframes ptRing{
+    from{transform:scale(1);opacity:.9;}
+    to{transform:scale(2.6);opacity:0;}
+}
+
+.pt-text{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#C5CEDB;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .35s ease .4s, transform .5s ease .4s;
+}
+
+.page-transition.active .pt-orb{
+    opacity:1;
+    transform:scale(1);
+}
+
+.page-transition.active .pt-text{
+    opacity:1;
+    transform:none;
+}
+
+/* page itself fades in softly under the leaving cover */
+.ai-page{
+    transition:opacity .6s ease, transform .6s ease;
+    transform:scale(1.02);
+}
+
+.ai-page.visible{
+    transform:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-transition">
+    <div class="pt-orb"></div>
+    <div class="pt-text" id="ptText"></div>
+</div>
+
+<!-- ================= NAV ================= -->
+
+<nav>
+
+    <div class="logo">
+        <span class="logo-dot"></span>
+        Our Green Future
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#elements">Elements</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#sensor">Sensor</a></li>
+        <li><a href="#greenai">GreenAI</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero" id="home">
+
+    <div class="hero-glow one"></div>
+    <div class="hero-glow two"></div>
+
+    <div class="hero-inner">
+
+        <div class="hero-badge">
+            <i></i>
+            SCHOOL SCIENCE & TECHNOLOGY PROJECT • 2026
+        </div>
+
+        <h1>
+            PANCHA
+            <em>MAHABHUTA</em>
+        </h1>
+
+        <p class="hero-note">
+            Five elements. One planet. A smarter future.
+        </p>
+
+        <p class="description">
+            An interactive exploration of the five fundamental elements
+            of nature and how traditional ideas can connect with modern
+            environmental science, smart irrigation and artificial intelligence.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="btn btn-primary"
+                    onclick="smoothTo('elements')">
+                Explore the Elements
+            </button>
+
+            <button class="btn btn-outline"
+                    onclick="smoothTo('project')">
+                View Our Project
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-hint">
+        ↓ SCROLL TO EXPLORE
+    </div>
+
+</header>
+
+
+<!-- ================= ELEMENTS ================= -->
+
+<section id="elements">
+
+    <div class="section-label">
+        01 / PANCHA MAHABHUTA
+    </div>
+
+    <h2 class="section-title">
+        Understanding<br>
+        <span>the five elements.</span>
+    </h2>
+
+    <p class="description">
+        The word “Pancha” means five and “Mahabhuta” refers to great or
+        fundamental elements. The five are traditionally described as
+        Prithvi (Earth), Jala (Water), Agni (Fire), Vayu (Air) and
+        Akasha (Space).
+    </p>
+
+
+    <div class="element-grid">
+
+        <div class="element earth"
+             onclick="openElement('Earth')">
+
+            <div class="element-number">01</div>
+            <div class="element-icon">🌍</div>
+
+            <h3>Prithvi</h3>
+            <small>EARTH</small>
+
+            <p>
+                The solid foundation of life — soil, minerals,
+                mountains, plants and physical matter.
+            </p>
+
+            <div class="click">OPEN ELEMENT →</div>
+
+        </div>
+
+
+        <div class="element water"
+             onclick="openElement('Water')">
+
+            <div class="element-number">02</div>
+            <div class="element-icon">💧</div>
+
+            <h3>Jala</h3>
+            <small>WATER</small>
+
+            <p>
+                The element associated with flow, life, rivers,
+                rain, oceans and the water cycle.
+            </p>
+
+            <div class="click">OPEN ELEMENT →</div>
+
+        </div>
+
+
+        <div class="element fire"
+             onclick="openElement('Fire')">
+
+            <div class="element-number">03</div>
+            <div class="element-icon">🔥</div>
+
+            <h3>Agni</h3>
+            <small>FIRE</small>
+
+            <p>
+                Represents heat, energy and transformation —
+                ideas strongly connected to modern science.
+            </p>
+
+            <div class="click">OPEN ELEMENT →</div>
+
+        </div>
+
+
+        <div class="element air"
+             onclick="openElement('Air')">
+
+            <div class="element-number">04</div>
+            <div class="element-icon">💨</div>
+
+            <h3>Vayu</h3>
+            <small>AIR</small>
+
+            <p>
+                The moving atmosphere around us, essential for
+                breathing, weather and ecosystems.
+            </p>
+
+            <div class="click">OPEN ELEMENT →</div>
+
+        </div>
+
+
+        <div class="element space"
+             onclick="openElement('Space')">
+
+            <div class="element-number">05</div>
+            <div class="element-icon">🌌</div>
+
+            <h3>Akasha</h3>
+            <small>SPACE</small>
+
+            <p>
+                The surrounding space in which matter, movement
+                and all other elements exist.
+            </p>
+
+            <div class="click">OPEN ELEMENT →</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECT ================= -->
+
+<section id="project">
+
+    <div class="section-label">
+        02 / OUR HANDMADE MODEL
+    </div>
+
+    <h2 class="section-title">
+        Smart irrigation<br>
+        <span>for a greener future.</span>
+    </h2>
+
+    <p class="description">
+        Our project demonstrates how a simple soil-moisture sensing system
+        can make plant watering more intelligent. Instead of watering a
+        plant at a fixed time, the system first checks whether the soil
+        actually needs water.
+    </p>
+
+
+    <div class="project-layout">
+
+        <div class="project-card">
+
+            <div class="project-tag">
+                OUR MAIN IDEA
+            </div>
+
+            <h3>
+                Water when the plant needs it.
+            </h3>
+
+            <p>
+                In ordinary watering, a plant may receive water even when
+                the soil is already wet. This can waste water.
+            </p>
+
+            <p>
+                Our model introduces a simple feedback system. A moisture
+                sensor observes the soil and provides a reading that can
+                be used to decide whether irrigation is necessary.
+            </p>
+
+            <p>
+                This connects the <b>Water</b> and <b>Earth</b> elements
+                of Pancha Mahabhuta directly with modern technology.
+            </p>
+
+            <button class="btn btn-primary"
+                    style="margin-top:25px"
+                    onclick="smoothTo('sensor')">
+                Try the Sensor
+            </button>
+
+        </div>
+
+
+        <div class="project-visual"
+             id="plantVisual">
+
+            <div class="plant">
+
+                <div class="stem"></div>
+
+                <div class="leaf a"></div>
+                <div class="leaf b"></div>
+                <div class="leaf c"></div>
+
+            </div>
+
+            <div class="drop one"></div>
+            <div class="drop two"></div>
+            <div class="drop three"></div>
+
+            <div class="ground"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HOW IT WORKS -->
+
+    <div style="margin-top:90px">
+
+        <div class="section-label">
+            HOW THE MODEL WORKS
+        </div>
+
+        <h2 class="section-title"
+            style="font-size:52px">
+            From soil to<br>
+            <span>smart decision.</span>
+        </h2>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-icon">🌱</div>
+
+                <h3>Plant</h3>
+
+                <p>
+                    The plant grows in soil and requires the right
+                    amount of moisture to remain healthy.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-icon">📡</div>
+
+                <h3>Sense</h3>
+
+                <p>
+                    A soil moisture sensor measures how much water
+                    is present around the plant's roots.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-icon">🧠</div>
+
+                <h3>Decide</h3>
+
+                <p>
+                    The reading is compared with a chosen moisture
+                    threshold to determine whether watering is needed.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-icon">💧</div>
+
+                <h3>Water</h3>
+
+                <p>
+                    If the soil is too dry, the system recommends
+                    irrigation instead of wasting water unnecessarily.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SENSOR ================= -->
+
+<section id="sensor">
+
+    <div class="section-label">
+        03 / INTERACTIVE SENSOR
+    </div>
+
+    <h2 class="section-title">
+        Test our<br>
+        <span>soil sensor.</span>
+    </h2>
+
+    <p class="description">
+        This is a digital demonstration of the moisture sensor used in
+        our concept. Try different readings. When moisture falls below
+        35%, the system will automatically warn that the plant needs water.
+    </p>
+
+
+    <div class="sensor-layout">
+
+        <div class="sensor-box">
+
+            <div class="sensor-number">
+                <span id="moistureValue">68</span>%
+            </div>
+
+            <div class="sensor-sub">
+                CURRENT SOIL MOISTURE
+            </div>
+
+            <div class="progress">
+                <div class="progress-fill"
+                     id="moistureBar">
+                </div>
+            </div>
+
+            <div class="status"
+                 id="sensorStatus">
+                ● MOISTURE LEVEL HEALTHY
+            </div>
+
+            <div class="sensor-buttons">
+
+                <button onclick="setMoisture(18)">
+                    Very Dry
+                </button>
+
+                <button onclick="setMoisture(30)">
+                    Dry
+                </button>
+
+                <button onclick="setMoisture(50)">
+                    Moderate
+                </button>
+
+                <button onclick="setMoisture(75)">
+                    Wet
+                </button>
+
+                <button onclick="randomSensor()">
+                    Random
+                </button>
+
+                <button onclick="waterPlant()">
+                    💧 Water
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <div class="project-tag">
+                WHAT THE NUMBERS MEAN
+            </div>
+
+            <h3>
+                Reading the sensor.
+            </h3>
+
+            <p>
+                <b>0–34% — Dry:</b><br>
+                The soil is considered too dry in our simulation.
+                The system displays a warning and recommends irrigation.
+            </p>
+
+            <p>
+                <b>35–59% — Moderate:</b><br>
+                The plant can be monitored. The system does not immediately
+                request watering.
+            </p>
+
+            <p>
+                <b>60–100% — Moist:</b><br>
+                The soil has a relatively high moisture reading, so
+                additional watering may not be necessary.
+            </p>
+
+            <div class="fact-strip">
+                💡 These values are demonstration thresholds for our
+                school model. Real plants have different moisture
+                requirements depending on their species and soil.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GREEN AI ================= -->
+
+<section id="greenai">
+
+    <div class="section-label">
+        04 / OUR DIGITAL ASSISTANT
+    </div>
+
+    <h2 class="section-title">
+        One assistant.<br>
+        <span>Many questions.</span>
+    </h2>
+
+    <p class="description">
+        GreenAI is the single interactive assistant for our project.
+        Instead of giving every element a separate AI, we created one
+        assistant that can connect the five elements, environmental
+        science, smart irrigation and sustainability.
+    </p>
+
+    <button class="btn btn-primary ai-enter" onclick="openAIPage(event)">
+        🚀 Enter GreenAI Space
+    </button>
+
+    <div class="ai-layout">
+
+        <div class="ai-intro">
+
+            <div class="ai-orb"></div>
+
+            <div>
+                <h3>GreenAI</h3>
+
+                <p>
+                    Ask questions about Pancha Mahabhuta,
+                    our irrigation model, water conservation,
+                    plants, environment and technology.
+                </p>
+
+                <div class="ai-status">
+                    ● PROJECT ASSISTANT READY
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="chat">
+
+            <div class="chat-header">
+
+                <div>
+                    <strong>GreenAI Assistant</strong>
+                    <small>
+                        Environmental learning assistant
+                    </small>
+                </div>
+
+                <div class="online">
+                    ● READY
+                </div>
+
+            </div>
+
+
+            <div class="chat-body"
+                 id="chatBody">
+
+                <div class="message">
+
+                    <div class="ai-answer">
+
+                        <h3>
+                            Welcome to GreenAI 🌱
+                        </h3>
+
+                        <p>
+                            Hi! I can help explain our project in simple
+                            terms and connect it with the five elements
+                            of Pancha Mahabhuta.
+                        </p>
+
+                        <ul>
+                            <li>Ask me what Pancha Mahabhuta means.</li>
+                            <li>Ask how our irrigation model works.</li>
+                            <li>Ask why soil moisture is important.</li>
+                            <li>Ask how technology can save water.</li>
+                            <li>Ask about Earth, Water, Fire, Air or Space.</li>
+                        </ul>
+
+                        <div class="ai-tip">
+                            💡 Try:
+                            “How does our irrigation model help the environment?”
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick">
+
+                <button onclick="quickAsk('What is Pancha Mahabhuta?')">
+                    What is Pancha Mahabhuta?
+                </button>
+
+                <button onclick="quickAsk('How does our irrigation model work?')">
+                    How does irrigation work?
+                </button>
+
+                <button onclick="quickAsk('Why is soil moisture important?')">
+                    Soil moisture
+                </button>
+
+                <button onclick="quickAsk('How can technology save water?')">
+                    Save water
+                </button>
+
+                <button onclick="quickAsk('Explain the five elements simply')">
+                    Explain the elements
+                </button>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input
+                    id="aiInput"
+                    placeholder="Ask GreenAI anything..."
+                    onkeydown="if(event.key==='Enter') askAI()"
+                >
+
+                <button onclick="voiceInput()">
+                    🎙
+                </button>
+
+                <button onclick="askAI()">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BASIC INFORMATION ================= -->
+
+<section>
+
+    <div class="section-label">
+        05 / QUICK KNOWLEDGE
+    </div>
+
+    <h2 class="section-title">
+        The basics,<br>
+        <span>explained simply.</span>
+    </h2>
+
+    <div class="basic-grid">
+
+        <div class="basic-card">
+
+            <div class="number">01 / EARTH</div>
+
+            <h3>Prithvi</h3>
+
+            <p>
+                Earth is associated with solidity and the physical
+                foundation of life. In our project, soil is the main
+                connection because plants depend on it for support,
+                water and nutrients.
+            </p>
+
+        </div>
+
+
+        <div class="basic-card">
+
+            <div class="number">02 / WATER</div>
+
+            <h3>Jala</h3>
+
+            <p>
+                Water is essential for living organisms and constantly
+                moves through the water cycle. Our project focuses on
+                delivering water to plants responsibly.
+            </p>
+
+        </div>
+
+
+        <div class="basic-card">
+
+            <div class="number">03 / FIRE</div>
+
+            <h3>Agni</h3>
+
+            <p>
+                Fire represents heat and transformation. In modern
+                science, energy and heat are studied through physics,
+                chemistry and engineering.
+            </p>
+
+        </div>
+
+
+        <div class="basic-card">
+
+            <div class="number">04 / AIR</div>
+
+            <h3>Vayu</h3>
+
+            <p>
+                Air is a mixture of gases surrounding Earth. It supports
+                breathing, plant processes, weather systems and many
+                natural cycles.
+            </p>
+
+        </div>
+
+
+        <div class="basic-card">
+
+            <div class="number">05 / SPACE</div>
+
+            <h3>Akasha</h3>
+
+            <p>
+                Space can be understood as the surrounding environment
+                in which objects and processes exist. Modern astronomy
+                allows us to study space on an enormous scale.
+            </p>
+
+        </div>
+
+
+        <div class="basic-card">
+
+            <div class="number">06 / CONNECTION</div>
+
+            <h3>One system</h3>
+
+            <p>
+                The five elements are not isolated ideas. Our project
+                uses them as a way to think about the relationship between
+                nature, resources, technology and responsible action.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SOURCES ================= -->
+
+<section class="sources">
+
+    <div class="section-label">
+        06 / PROJECT NOTES
+    </div>
+
+    <h2 class="section-title">
+        From traditional<br>
+        <span>ideas to technology.</span>
+    </h2>
+
+    <p class="description">
+        Our project does not try to replace traditional knowledge with
+        technology. Instead, it uses the idea of the five elements as
+        an educational starting point and connects it with modern
+        environmental science.
+    </p>
+
+
+    <div class="source-grid">
+
+        <div class="source">
+
+            <strong>Pancha Mahabhuta</strong>
+
+            <p>
+                Traditional Indian concept describing five fundamental
+                elements: Earth, Water, Fire, Air and Space.
+            </p>
+
+        </div>
+
+
+        <div class="source">
+
+            <strong>Soil Moisture</strong>
+
+            <p>
+                Soil moisture refers to the amount of water contained
+                within soil and is important for plant growth.
+            </p>
+
+        </div>
+
+
+        <div class="source">
+
+            <strong>Smart Irrigation</strong>
+
+            <p>
+                Technology-assisted irrigation can use measurements
+                such as soil moisture to make watering more efficient.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <strong>OUR GREEN FUTURE</strong>
+
+    <br><br>
+
+    Pancha Mahabhuta • Smart Irrigation • GreenAI
+
+    <br>
+
+    <span>
+        A student project exploring how nature and technology can work together.
+    </span>
+
+</footer>
+
+
+<!-- ================= ELEMENT MODAL ================= -->
+
+<div class="modal"
+     id="elementModal">
+
+    <div class="element-window">
+
+        <button class="close"
+                onclick="closeElement()">
+            ×
+        </button>
+
+        <div id="elementContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= WATER ALERT ================= -->
+
+<div class="alert"
+     id="waterAlert">
+
+    <div class="alert-box">
+
+        <div class="alert-icon">
+            💧
+        </div>
+
+        <h2>
+            WATER NEEDED
+        </h2>
+
+        <p>
+            The simulated soil moisture has dropped below
+            the irrigation threshold. The system recommends
+            watering the plant.
+        </p>
+
+        <div class="alert-value">
+            MOISTURE:
+            <span id="alertValue">18</span>%
+        </div>
+
+        <div style="
+            margin-top:25px;
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            flex-wrap:wrap;
+        ">
+
+            <button class="btn btn-primary"
+                    onclick="waterPlant()">
+                💧 Water Plant
+            </button>
+
+            <button class="btn btn-outline"
+                    onclick="closeAlert()">
+                Later
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= GREENAI SPACE PAGE ================= -->
+
+<div class="ai-page" id="aiPage" aria-hidden="true">
+
+    <div class="ai-topbar">
+        <div class="logo">
+            <span class="logo-dot"></span>
+            GreenAI Space
+        </div>
+        <button class="ai-back" onclick="closeAIPage(event)">← Back to website</button>
+    </div>
+
+    <div class="ai-scene-wrap">
+
+        <div class="ai-scene-head">
+            <div class="section-label">GREENAI / THE SOLAR SYSTEM</div>
+            <h1>Our solar system.<br><em>Explore the planets.</em></h1>
+        </div>
+
+        <div class="ai-scene">
+            <canvas id="aiSpace"></canvas>
+
+            <div class="ai-legend">
+                <span><i style="background:#F5A623"></i>Sun</span>
+                <span><i style="background:#A8A29A"></i>Mercury</span>
+                <span><i style="background:#E3B66B"></i>Venus</span>
+                <span><i style="background:#2F7DE1"></i>Earth</span>
+                <span><i style="background:#D4562F"></i>Mars</span>
+                <span><i style="background:#C99B6E"></i>Jupiter</span>
+                <span><i style="background:#D9BC82"></i>Saturn</span>
+                <span><i style="background:#7DD3DC"></i>Uranus</span>
+                <span><i style="background:#3F66E0"></i>Neptune</span>
+            </div>
+
+            <div class="ai-info" id="aiInfo">
+                <button onclick="hideAIInfo()" aria-label="Close">×</button>
+                <small></small>
+                <h3></h3>
+                <p></p>
+            </div>
+
+            <div class="ai-scene-hint">Drag to rotate · Click a planet for facts</div>
+        </div>
+
+    </div>
+
+    <div class="ai-scroll-cue">↓ Scroll down to talk to GreenAI</div>
+
+    <div class="ai-chat-zone" id="aiChatZone">
+        <div class="section-label">TALK TO GREENAI</div>
+        <h2 class="section-title">
+            One assistant.<br>
+            <span>Many questions.</span>
+        </h2>
+        <!-- chat is moved here by script -->
+    </div>
+
+</div>
+
+<script>
+
+/* =========================================================
+   ELEMENT INFORMATION
+========================================================= */
+
+const elementData = {
+
+    Earth:{
+        icon:"🌍",
+        name:"Prithvi",
+        english:"Earth",
+        meaning:"The element of solidity and foundation.",
+        color:"#5B8DEF",
+        description:
+        "Prithvi represents the solid and stable aspect of nature. It can be connected with soil, rocks, minerals, plants and the physical foundation that supports life.",
+
+        facts:[
+            "Soil supports plant roots.",
+            "Minerals are important for plant growth.",
+            "Earth provides habitats for many organisms.",
+            "Healthy soil is an important environmental resource."
+        ],
+
+        science:
+        "Modern earth science studies rocks, minerals, soil, ecosystems and the processes that shape our planet.",
+
+        project:
+        "Our irrigation model connects Earth with soil. The moisture sensor helps us understand the condition of the soil surrounding the plant."
+    },
+
+    Water:{
+        icon:"💧",
+        name:"Jala",
+        english:"Water",
+        meaning:"The element associated with flow and life.",
+        color:"#60A5FA",
+        description:
+        "Jala represents water and its flowing nature. Water is essential for plants, animals, humans and ecosystems and continuously moves through Earth's water cycle.",
+
+        facts:[
+            "Plants need water for growth.",
+            "Water moves through the water cycle.",
+            "Fresh water is a limited resource.",
+            "Efficient irrigation can reduce unnecessary water use."
+        ],
+
+        science:
+        "Modern science studies water through hydrology, chemistry, environmental science and many other fields.",
+
+        project:
+        "Water is the central resource in our irrigation project. The system tries to provide water according to soil conditions."
+    },
+
+    Fire:{
+        icon:"🔥",
+        name:"Agni",
+        english:"Fire",
+        meaning:"The element associated with heat and transformation.",
+        color:"#3B82F6",
+        description:
+        "Agni represents heat, energy and transformation. Fire can change materials and release energy, making it an interesting connection to modern scientific ideas.",
+
+        facts:[
+            "Heat is a form of energy transfer.",
+            "Energy can change from one form to another.",
+            "Fire can be useful but must be controlled.",
+            "Modern engineering focuses strongly on energy efficiency."
+        ],
+
+        science:
+        "Physics and chemistry explain combustion, heat transfer, energy conversion and many processes traditionally associated with fire.",
+
+        project:
+        "Our project uses electronics and energy to operate a sensing system, showing how modern technology depends on controlled energy."
+    },
+
+    Air:{
+        icon:"💨",
+        name:"Vayu",
+        english:"Air",
+        meaning:"The element associated with movement and atmosphere.",
+        color:"#CBD5E1",
+        description:
+        "Vayu can be connected with movement and the atmosphere around us. Air is essential for breathing, weather systems and many natural processes.",
+
+        facts:[
+            "Air contains several different gases.",
+            "Oxygen is essential for human and animal respiration.",
+            "Plants use carbon dioxide during photosynthesis.",
+            "Weather depends on atmospheric movement."
+        ],
+
+        science:
+        "Atmospheric science studies air pressure, wind, temperature, gases, weather and climate.",
+
+        project:
+        "Plants depend on the atmosphere as well as soil and water, reminding us that environmental systems are interconnected."
+    },
+
+    Space:{
+        icon:"🌌",
+        name:"Akasha",
+        english:"Space",
+        meaning:"The surrounding space in which everything exists.",
+        color:"#94A3B8",
+        description:
+        "Akasha is traditionally associated with space or the surrounding environment. Modern science gives us new ways to think about space through astronomy and observation.",
+
+        facts:[
+            "Earth exists within a much larger universe.",
+            "Satellites can observe Earth's environment.",
+            "Space science helps us understand planets and stars.",
+            "Remote observation can support environmental research."
+        ],
+
+        science:
+        "Astronomy, astrophysics and space science allow scientists to study objects and processes far beyond Earth.",
+
+        project:
+        "The idea of observation connects to our project: just as satellites observe Earth from above, our sensor observes soil conditions from the plant's environment."
+    }
+
+};
+
+
+/* =========================================================
+   OPEN ELEMENT
+========================================================= */
+
+function openElement(name){
+
+    const e = elementData[name];
+
+    const content = document.getElementById("elementContent");
+
+    content.innerHTML = `
+
+        <div class="modal-head"
+             style="
+                background:
+                linear-gradient(
+                    135deg,
+                    ${e.color}25,
+                    rgba(255,255,255,.02)
+                );
+                border:1px solid ${e.color}45;
+             ">
+
+            <div class="modal-icon">
+                ${e.icon}
+            </div>
+
+            <div>
+
+                <div class="section-label"
+                     style="color:${e.color}">
+                    ELEMENT ${name.toUpperCase()}
+                </div>
+
+                <h2>${e.name}</h2>
+
+                <div class="meaning">
+                    ${e.meaning}
+                </div>
+
+                <p>
+                    ${e.description}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-box">
+                <span>TRADITIONAL NAME</span>
+                <strong>${e.name}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>ENGLISH</span>
+                <strong>${e.english}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>PROJECT CONNECTION</span>
+                <strong>${name === "Water" ? "Irrigation" : "Environment"}</strong>
+            </div>
+
+        </div>
+
+
+        <div class="modal-content-grid">
+
+            <div class="info-section">
+
+                <h3>What does it represent?</h3>
+
+                <p>
+                    ${e.description}
+                </p>
+
+                <div class="fact-strip">
+                    ${e.project}
+                </div>
+
+            </div>
+
+
+            <div class="info-section">
+
+                <h3>Basic facts</h3>
+
+                <ul>
+                    ${e.facts.map(f => `<li>${f}</li>`).join("")}
+                </ul>
+
+            </div>
+
+
+            <div class="info-section">
+
+                <h3>Modern science</h3>
+
+                <p>
+                    ${e.science}
+                </p>
+
+            </div>
+
+
+            <div class="info-section">
+
+                <h3>Why does it matter?</h3>
+
+                <p>
+                    Understanding this element helps us see how different
+                    parts of nature interact. Our project uses this idea
+                    to connect environmental awareness with technology.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+    document.getElementById("elementModal")
+        .classList.add("show");
+
+    document.body.classList.add("lock");
+
+}
+
+
+/* =========================================================
+   CLOSE ELEMENT
+========================================================= */
+
+function closeElement(){
+
+    document.getElementById("elementModal")
+        .classList.remove("show");
+
+    document.body.classList.remove("lock");
+
+}
+
+
+document.getElementById("elementModal")
+.addEventListener("click",function(event){
+
+    if(event.target === this){
+        closeElement();
+    }
+
+});
+
+
+/* =========================================================
+   SENSOR
+========================================================= */
+
+let sensorWasDry = false;
+
+function setMoisture(value){
+
+    value = Math.max(0,Math.min(100,Number(value)));
+
+    document.getElementById("moistureValue")
+        .textContent = value;
+
+    document.getElementById("alertValue")
+        .textContent = value;
+
+    document.getElementById("moistureBar")
+        .style.width = value + "%";
+
+    const status =
+        document.getElementById("sensorStatus");
+
+
+    if(value < 35){
+
+        status.textContent =
+            "⚠ SOIL TOO DRY — WATER NEEDED";
+
+        status.style.color = "#93C5FD";
+
+        status.style.background =
+            "rgba(147,197,253,.10)";
+
+        if(!sensorWasDry){
+
+            showWaterAlert();
+
+            sensorWasDry = true;
+
+        }
+
+    }
+
+    else if(value < 60){
+
+        status.textContent =
+            "● MODERATE MOISTURE — MONITOR";
+
+        status.style.color = "#CBD5E1";
+
+        status.style.background =
+            "rgba(203,213,225,.08)";
+
+        sensorWasDry = false;
+
+    }
+
+    else{
+
+        status.textContent =
+            "● MOISTURE LEVEL HEALTHY";
+
+        status.style.color = "#3B82F6";
+
+        status.style.background =
+            "rgba(59,130,246,.10)";
+
+        sensorWasDry = false;
+
+    }
+
+}
+
+
+function randomSensor(){
+
+    const value =
+        Math.floor(Math.random()*91)+5;
+
+    setMoisture(value);
+
+}
+
+
+function showWaterAlert(){
+
+    document.getElementById("waterAlert")
+        .classList.add("show");
+
+}
+
+
+function closeAlert(){
+
+    document.getElementById("waterAlert")
+        .classList.remove("show");
+
+}
+
+
+function waterPlant(){
+
+    setMoisture(78);
+
+    closeAlert();
+
+    const visual =
+        document.getElementById("plantVisual");
+
+    visual.classList.add("watering");
+
+    setTimeout(()=>{
+
+        visual.classList.remove("watering");
+
+    },5000);
+
+}
+
+
+/* =========================================================
+   GREEN AI
+========================================================= */
+
+function quickAsk(question){
+
+    document.getElementById("aiInput")
+        .value = question;
+
+    askAI();
+
+}
+
+
+function addUserMessage(text){
+
+    const body =
+        document.getElementById("chatBody");
+
+    const div =
+        document.createElement("div");
+
+    div.className = "message user";
+
+    div.innerHTML = `
+        <div class="user-bubble">
+            ${escapeHTML(text)}
+        </div>
+    `;
+
+    body.appendChild(div);
+
+    body.scrollTop =
+        body.scrollHeight;
+
+}
+
+
+function showTyping(){
+
+    const body =
+        document.getElementById("chatBody");
+
+    const div =
+        document.createElement("div");
+
+    div.className = "message";
+
+    div.id = "typingMessage";
+
+    div.innerHTML = `
+        <div class="typing">
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    `;
+
+    body.appendChild(div);
+
+    body.scrollTop =
+        body.scrollHeight;
+
+}
+
+
+function removeTyping(){
+
+    const typing =
+        document.getElementById("typingMessage");
+
+    if(typing){
+        typing.remove();
+    }
+
+}
+
+
+function addAIAnswer(data){
+
+    const body =
+        document.getElementById("chatBody");
+
+    const div =
+        document.createElement("div");
+
+    div.className = "message";
+
+    div.innerHTML = `
+
+        <div class="ai-answer">
+
+            <h3>
+                ${data.title}
+            </h3>
+
+            <p>
+                ${data.answer}
+            </p>
+
+            <ul>
+                ${data.points.map(
+                    point => `<li>${point}</li>`
+                ).join("")}
+            </ul>
+
+            <div class="ai-tip">
+                💡 ${data.tip}
+            </div>
+
+        </div>
+
+    `;
+
+    body.appendChild(div);
+
+    body.scrollTop =
+        body.scrollHeight;
+
+}
+
+
+function askAI(){
+
+    const input =
+        document.getElementById("aiInput");
+
+    const question =
+        input.value.trim();
+
+    if(!question){
+        return;
+    }
+
+    addUserMessage(question);
+
+    input.value = "";
+
+    showTyping();
+
+    setTimeout(()=>{
+
+        removeTyping();
+
+        addAIAnswer(
+            getAIAnswer(question)
+        );
+
+    },650);
+
+}
+
+
+/* =========================================================
+   AI KNOWLEDGE
+========================================================= */
+
+function getAIAnswer(question){
+
+    const q =
+        question.toLowerCase();
+
+
+    if(
+        q.includes("pancha") ||
+        q.includes("five element") ||
+        q.includes("5 element")
+    ){
+
+        return {
+
+            title:"🌏 What is Pancha Mahabhuta?",
+
+            answer:
+            "Pancha Mahabhuta is a traditional Indian concept describing five fundamental elements of nature: Prithvi (Earth), Jala (Water), Agni (Fire), Vayu (Air) and Akasha (Space). Our project uses this idea as an educational bridge between traditional knowledge and modern environmental science.",
+
+            points:[
+                "Prithvi represents Earth and solidity.",
+                "Jala represents Water and flow.",
+                "Agni represents Fire, heat and transformation.",
+                "Vayu represents Air and movement.",
+                "Akasha represents Space or the surrounding environment."
+            ],
+
+            tip:
+            "Our project is about seeing nature as an interconnected system rather than a collection of unrelated parts."
+        };
+
+    }
+
+
+    if(
+        q.includes("irrigation") ||
+        q.includes("model") ||
+        q.includes("how does your project")
+    ){
+
+        return {
+
+            title:"💧 How does our irrigation model work?",
+
+            answer:
+            "Our model is based on a simple feedback loop. A moisture sensor checks the soil, the reading is compared with a threshold, and the system can recommend watering when the soil becomes too dry.",
+
+            points:[
+                "The plant grows in soil.",
+                "The moisture sensor observes the soil.",
+                "The system receives a moisture reading.",
+                "A threshold helps determine whether watering is needed.",
+                "Water can then be supplied instead of watering blindly."
+            ],
+
+            tip:
+            "The important idea is feedback: measure first, then make a decision."
+        };
+
+    }
+
+
+    if(
+        q.includes("soil moisture") ||
+        q.includes("soil")
+    ){
+
+        return {
+
+            title:"🌱 Why is soil moisture important?",
+
+            answer:
+            "Soil moisture describes how much water is available within the soil. Plants need water, but too little or too much can create problems. Measuring moisture gives us information that can support better watering decisions.",
+
+            points:[
+                "Dry soil can make it difficult for plants to obtain enough water.",
+                "Very wet soil may not always be beneficial.",
+                "Different plants require different moisture conditions.",
+                "Sensors allow moisture to be measured instead of guessed."
+            ],
+
+            tip:
+            "Our 35% warning level is only a demonstration threshold for the school model — real plants have different requirements."
+        };
+
+    }
+
+
+    if(
+        q.includes("save water") ||
+        q.includes("conservation") ||
+        q.includes("waste water")
+    ){
+
+        return {
+
+            title:"💧 How can technology help save water?",
+
+            answer:
+            "Technology can help by measuring conditions before resources are used. In our model, soil moisture provides information that can help decide whether watering is actually necessary.",
+
+            points:[
+                "Measure before watering.",
+                "Avoid unnecessary irrigation.",
+                "Monitor changing soil conditions.",
+                "Use data to make more informed decisions."
+            ],
+
+            tip:
+            "Smart technology is useful when it helps us use resources more responsibly."
+        };
+
+    }
+
+
+    if(
+        q.includes("earth") ||
+        q.includes("prithvi")
+    ){
+
+        return {
+
+            title:"🌍 Prithvi — Earth",
+
+            answer:
+            "Earth is the solid foundation of our project. Soil supports plant roots and contains water, air, minerals and living organisms.",
+
+            points:[
+                "Soil supports plants physically.",
+                "Soil stores water.",
+                "Minerals in soil can support plant growth.",
+                "Healthy soil is an important environmental resource."
+            ],
+
+            tip:
+            "Our sensor connects directly to Prithvi because it observes the condition of soil."
+        };
+
+    }
+
+
+    if(
+        q.includes("water") ||
+        q.includes("jala")
+    ){
+
+        return {
+
+            title:"💧 Jala — Water",
+
+            answer:
+            "Water is essential for life and is the main resource involved in our irrigation project. Plants require water for important biological processes.",
+
+            points:[
+                "Water supports plant growth.",
+                "Water moves through the natural water cycle.",
+                "Fresh water needs to be managed carefully.",
+                "Smart irrigation can support efficient use."
+            ],
+
+            tip:
+            "Our project focuses on one simple question: does the plant need water right now?"
+        };
+
+    }
+
+
+    if(
+        q.includes("fire") ||
+        q.includes("agni") ||
+        q.includes("energy")
+    ){
+
+        return {
+
+            title:"🔥 Agni — Fire",
+
+            answer:
+            "Agni represents fire, heat and transformation. In modern science, these ideas connect to energy, combustion, heat transfer and chemical reactions.",
+
+            points:[
+                "Energy can change from one form to another.",
+                "Heat is transferred between objects.",
+                "Combustion is a chemical process.",
+                "Technology requires controlled energy."
+            ],
+
+            tip:
+            "Our irrigation model also depends on controlled electrical energy to operate its sensing system."
+        };
+
+    }
+
+
+    if(
+        q.includes("air") ||
+        q.includes("vayu") ||
+        q.includes("atmosphere")
+    ){
+
+        return {
+
+            title:"💨 Vayu — Air",
+
+            answer:
+            "Air is the mixture of gases surrounding Earth. It supports life and plays an important role in weather, climate and natural cycles.",
+
+            points:[
+                "Oxygen supports respiration.",
+                "Plants use carbon dioxide during photosynthesis.",
+                "Wind is caused by movement of air.",
+                "The atmosphere helps regulate Earth's environment."
+            ],
+
+            tip:
+            "A plant needs more than water — it is part of a much larger environmental system."
+        };
+
+    }
+
+
+    if(
+        q.includes("space") ||
+        q.includes("akasha") ||
+        q.includes("universe") ||
+        q.includes("satellite")
+    ){
+
+        return {
+
+            title:"🌌 Akasha — Space",
+
+            answer:
+            "Akasha is traditionally associated with space or the surrounding environment. Modern science allows us to explore space through astronomy, satellites and remote sensing.",
+
+            points:[
+                "Earth exists within the universe.",
+                "Satellites can observe our planet.",
+                "Remote sensing can provide environmental information.",
+                "Space science expands our understanding of Earth and beyond."
+            ],
+
+            tip:
+            "Sometimes the best way to understand Earth is to look at it from above."
+        };
+
+    }
+
+
+    if(
+        q.includes("ai") ||
+        q.includes("artificial intelligence")
+    ){
+
+        return {
+
+            title:"🤖 How does AI fit into our project?",
+
+            answer:
+            "AI can help people understand information and identify patterns. In a real smart irrigation system, sensor data could potentially be analysed to improve watering decisions.",
+
+            points:[
+                "Sensors collect information.",
+                "Software processes the information.",
+                "AI can identify patterns in larger datasets.",
+                "Recommendations can support human decisions."
+            ],
+
+            tip:
+            "Our website uses an interactive educational assistant. It is a demonstration of how an AI-style interface can explain project information."
+        };
+
+    }
+
+
+    if(
+        q.includes("environment") ||
+        q.includes("green") ||
+        q.includes("nature")
+    ){
+
+        return {
+
+            title:"🌱 Technology and the Environment",
+
+            answer:
+            "Technology and nature do not have to be opposites. When technology is designed responsibly, it can help us measure environmental conditions, understand resources and make better decisions.",
+
+            points:[
+                "Sensors can measure things humans cannot easily estimate.",
+                "Data can reveal environmental patterns.",
+                "Smart systems can reduce unnecessary resource use.",
+                "Human responsibility remains important."
+            ],
+
+            tip:
+            "The goal of our project is not more technology — it is better decisions."
+        };
+
+    }
+
+
+    return {
+
+        title:"🌿 GreenAI",
+
+        answer:
+        "Our project connects five elements of nature with modern environmental thinking. The main idea is to observe the environment, collect information, understand what it means and then make a responsible decision.",
+
+        points:[
+            "Earth connects to soil and plants.",
+            "Water connects to irrigation and conservation.",
+            "Fire connects to energy and transformation.",
+            "Air connects to atmosphere and life.",
+            "Space connects to observation and the larger environment."
+        ],
+
+        tip:
+        "Try asking me about Pancha Mahabhuta, irrigation, soil moisture, water conservation, AI or one of the five elements."
+    };
+
+}
+
+
+/* =========================================================
+   VOICE
+========================================================= */
+
+function voiceInput(){
+
+    const Recognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if(!Recognition){
+
+        alert(
+            "Voice input is not supported in this browser. Please try Chrome or Edge."
+        );
+
+        return;
+    }
+
+    const recognition =
+        new Recognition();
+
+    recognition.lang = "en-IN";
+
+    recognition.interimResults = false;
+
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function(event){
+
+        const result =
+            event.results[0][0].transcript;
+
+        document.getElementById("aiInput")
+            .value = result;
+
+        askAI();
+
+    };
+
+}
+
+
+/* =========================================================
+   SMOOTH NAVIGATION
+========================================================= */
+
+function smoothTo(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(!element){
+        return;
+    }
+
+    element.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text){
+
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeElement();
+        closeAlert();
+
+    }
+
+});
+
+
+/* =========================================================
+   INITIAL SENSOR
+========================================================= */
+
+setMoisture(68);
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".element,.project-card,.step,.basic-card,.source,.sensor-box,.ai-layout"
+    );
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.08
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition =
+        "opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)";
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   GREENAI SPACE PAGE — open / close + 3D scene
+========================================================= */
+
+(function(){
+
+    const page   = document.getElementById("aiPage");
+    const zone   = document.getElementById("aiChatZone");
+    const layout = document.querySelector("#greenai .ai-layout");
+    const wipe   = document.querySelector(".page-transition");
+    const canvas = document.getElementById("aiSpace");
+    const ctx    = canvas.getContext("2d");
+
+    /* move the existing chat into the new page (same IDs, same functions) */
+    if(layout && zone){
+        observer.unobserve(layout);
+        layout.style.opacity = "1";
+        layout.style.transform = "none";
+        zone.appendChild(layout);
+    }
+
+    let isOpen = false;
+    let running = false;
+
+    function runTransition(label, e, midpoint){
+
+        if(busy) return;
+        busy = true;
+
+        if(e && e.clientX !== undefined){
+            wipe.style.setProperty("--cx", e.clientX + "px");
+            wipe.style.setProperty("--cy", e.clientY + "px");
+        }else{
+            wipe.style.setProperty("--cx", "50%");
+            wipe.style.setProperty("--cy", "50%");
+        }
+
+        document.getElementById("ptText").textContent = label;
+        wipe.classList.remove("leaving");
+        wipe.classList.add("active");
+
+        setTimeout(function(){
+
+            midpoint();
+
+            setTimeout(function(){
+                wipe.classList.add("leaving");
+
+                setTimeout(function(){
+                    wipe.classList.remove("active");
+                    wipe.classList.remove("leaving");
+                    busy = false;
+                },600);
+
+            },350);
+
+        },950);
+
+    }
+
+    let busy = false;
+
+    window.openAIPage = function(e){
+
+        if(isOpen) return;
+        isOpen = true;
+
+        runTransition("GreenAI Space", e, function(){
+            page.classList.add("show");
+            page.setAttribute("aria-hidden","false");
+            page.scrollTop = 0;
+            document.body.classList.add("lock");
+            resize();
+            start();
+            requestAnimationFrame(function(){
+                page.classList.add("visible");
+            });
+        });
+
+    };
+
+    window.closeAIPage = function(e){
+
+        if(!isOpen) return;
+        isOpen = false;
+
+        runTransition("Back to Earth", e, function(){
+            page.classList.remove("visible");
+            page.classList.remove("show");
+            page.setAttribute("aria-hidden","true");
+            document.body.classList.remove("lock");
+            running = false;
+            smoothTo("greenai");
+        });
+
+    };
+
+    /* every link that points to #greenai opens the space page */
+    document.querySelectorAll('a[href="#greenai"]').forEach(function(a){
+        a.addEventListener("click",function(e){
+            e.preventDefault();
+            openAIPage(e);
+        });
+    });
+
+    document.addEventListener("keydown",function(e){
+        if(e.key === "Escape" && isOpen){
+            const modalOpen = document.getElementById("elementModal")
+                .classList.contains("show");
+            if(!modalOpen) closeAIPage();
+        }
+    });
+
+
+    /* ---------------- 3D SCENE ---------------- */
+
+    let W = 0, H = 0, DPR = 1, S = 1;
+
+    function resize(){
+        const r = canvas.getBoundingClientRect();
+        if(!r.width) return;
+        DPR = Math.min(window.devicePixelRatio || 1, 2);
+        W = r.width; H = r.height;
+        canvas.width  = Math.round(W * DPR);
+        canvas.height = Math.round(H * DPR);
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+        S = Math.min(W / 1040, H / 640) * 0.84;
+    }
+    window.addEventListener("resize",resize);
+
+    /* stars */
+    const stars = [];
+    for(let i=0;i<650;i++){
+        const u = Math.random()*2-1, t = Math.random()*Math.PI*2;
+        const rad = 380 + Math.random()*900;
+        const s = Math.sqrt(1-u*u);
+        stars.push({
+            x:rad*s*Math.cos(t),
+            y:rad*u,
+            z:rad*s*Math.sin(t),
+            size:Math.random()*1.4+.3,
+            tw:Math.random()*6.28
+        });
+    }
+
+    /* planets */
+    const planets = [
+        {key:"Mercury",name:"Mercury",en:"1st planet",r:70, size:6, tilt:.05,a:.4, c1:"#E5E0D8",c2:"#A8A29A",c3:"#4B4743",
+         fact:"The smallest planet and the closest to the Sun. One year lasts just 88 Earth days."},
+        {key:"Venus",name:"Venus",en:"2nd planet",r:110,size:10,tilt:-.06,a:2.2,c1:"#FBE7B8",c2:"#E3B66B",c3:"#7A5524",
+         fact:"The hottest planet, with a thick atmosphere that traps heat. It spins backwards."},
+        {key:"Earth",name:"Earth",en:"3rd planet",r:155,size:11,tilt:.04,a:4.1,c1:"#A7D8FF",c2:"#2F7DE1",c3:"#0B2C5E",moon:true,
+         fact:"Our home, and the only known planet with life. About 71% of its surface is water."},
+        {key:"Mars",name:"Mars",en:"4th planet",r:200,size:8,tilt:-.05,a:1.1,c1:"#FFC8A8",c2:"#D4562F",c3:"#5E1E0E",
+         fact:"The red planet. It has the tallest volcano in the solar system, Olympus Mons."},
+        {key:"Jupiter",name:"Jupiter",en:"5th planet",r:320,size:23,tilt:.03,a:3.0,c1:"#F6E3CC",c2:"#C99B6E",c3:"#6B4A2C",
+         fact:"The largest planet. Its Great Red Spot is a storm bigger than Earth."},
+        {key:"Saturn",name:"Saturn",en:"6th planet",r:390,size:19,tilt:-.04,a:5.2,c1:"#FFF1CC",c2:"#D9BC82",c3:"#7A6234",ring:true,
+         fact:"Famous for its bright rings made of ice and rock. It is light enough to float in water."},
+        {key:"Uranus",name:"Uranus",en:"7th planet",r:445,size:14,tilt:.05,a:.2, c1:"#D9F7FA",c2:"#7DD3DC",c3:"#2B6A74",
+         fact:"An ice giant that spins on its side. One orbit around the Sun takes 84 Earth years."},
+        {key:"Neptune",name:"Neptune",en:"8th planet",r:495,size:14,tilt:-.03,a:2.7,c1:"#A9C4FF",c2:"#3F66E0",c3:"#14246B",
+         fact:"The farthest planet, with the fastest winds in the solar system. A year here is 165 Earth years."}
+    ];
+
+    planets.forEach(function(p){ p.speed = .9*Math.pow(100/p.r,1.5)*.45; });
+
+    /* asteroid belt between Mars and Jupiter */
+    const sats = [];
+    for(let i=0;i<160;i++){
+        sats.push({
+            r:238+Math.random()*50,
+            a:Math.random()*6.28,
+            sp:(Math.random()*.1+.03)*(Math.random()<.5?1:-1),
+            y:(Math.random()-.5)*14,
+            size:Math.random()*1.5+.6
+        });
+    }
+
+    let yaw = .5, pitch = .42, vyaw = 0, targetPitch = .42;
+    let dragging = false, lastX = 0, lastY = 0, moved = 0;
+    let hover = null, mouse = {x:-999,y:-999};
+    let hits = [];
+    let t0 = performance.now(), last = t0;
+
+    function rot(x,y,z){
+        const cy = Math.cos(yaw),  sy = Math.sin(yaw);
+        const cp = Math.cos(pitch), sp = Math.sin(pitch);
+        let x1 =  x*cy + z*sy;
+        let z1 = -x*sy + z*cy;
+        let y1 =  y*cp - z1*sp;
+        let z2 =  y*sp + z1*cp;
+        return {x:x1, y:y1, z:z2};
+    }
+
+    const FOV = 900;
+    function proj(p){
+        const k = FOV / (FOV + p.z * S * 1.0 + 120);
+        return {
+            x: W/2 + p.x * S * k,
+            y: H*0.5 + p.y * S * k * 1.0,
+            k: k
+        };
+    }
+
+    function planetPos(p, time){
+        const a = p.a + time * p.speed;
+        const x = p.r * Math.cos(a);
+        const zr = p.r * Math.sin(a);
+        const y = zr * Math.sin(p.tilt);
+        const z = zr * Math.cos(p.tilt);
+        return {x:x, y:y, z:z};
+    }
+
+    function drawOrbit(p){
+        ctx.beginPath();
+        const N = 120;
+        for(let i=0;i<=N;i++){
+            const a = i/N*Math.PI*2;
+            const x = p.r*Math.cos(a);
+            const zr = p.r*Math.sin(a);
+            const r = rot(x, zr*Math.sin(p.tilt), zr*Math.cos(p.tilt));
+            const q = proj(r);
+            if(i===0) ctx.moveTo(q.x,q.y); else ctx.lineTo(q.x,q.y);
+        }
+        const hot = hover && hover.key === p.key;
+        ctx.strokeStyle = hot ? "rgba(96,165,250,.7)" : "rgba(147,180,230,.16)";
+        ctx.lineWidth = hot ? 1.6 : 1;
+        ctx.stroke();
+    }
+
+    function sphere(x,y,r,p,lx,ly){
+        /* halo */
+        if(p.glow){
+            const g = ctx.createRadialGradient(x,y,r*.8,x,y,r*3);
+            g.addColorStop(0,"rgba(59,130,246,.45)");
+            g.addColorStop(1,"rgba(59,130,246,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(x,y,r*3,0,6.283); ctx.fill();
+        }
+        const g = ctx.createRadialGradient(x+lx*r*.45, y+ly*r*.45, r*.08, x, y, r);
+        g.addColorStop(0,p.c1);
+        g.addColorStop(.55,p.c2);
+        g.addColorStop(1,p.c3);
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.fill();
+    }
+
+    function drawRing(x,y,r,front){
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.rotate(-.35);
+        ctx.scale(1,.32);
+        ctx.beginPath();
+        if(front) ctx.arc(0,0,r*1.9,0,Math.PI);
+        else ctx.arc(0,0,r*1.9,Math.PI,Math.PI*2);
+        ctx.lineWidth = r*.28;
+        ctx.strokeStyle = "rgba(203,213,225,.55)";
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawSun(q, time){
+        const pulse = 1 + Math.sin(time*1.6)*.05;
+        const R = 34 * S * q.k * pulse;
+        let g = ctx.createRadialGradient(q.x,q.y,R*.2,q.x,q.y,R*5);
+        g.addColorStop(0,"rgba(255,190,70,.55)");
+        g.addColorStop(.35,"rgba(255,150,40,.16)");
+        g.addColorStop(1,"rgba(255,150,40,0)");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(q.x,q.y,R*5,0,6.283); ctx.fill();
+
+        g = ctx.createRadialGradient(q.x-R*.3,q.y-R*.3,R*.05,q.x,q.y,R);
+        g.addColorStop(0,"#FFFBEA");
+        g.addColorStop(.35,"#FFD36B");
+        g.addColorStop(1,"#F08A24");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(q.x,q.y,R,0,6.283); ctx.fill();
+
+        ctx.fillStyle = "rgba(255,255,255,.92)";
+        ctx.font = "600 " + Math.max(11,12*S) + "px Outfit, Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("Sun", q.x, q.y + R + 20*S);
+    }
+
+    function frame(now){
+
+        if(!running) return;
+        requestAnimationFrame(frame);
+
+        const dt = Math.min((now-last)/1000,.05); last = now;
+        const time = (now-t0)/1000;
+
+        if(!dragging){
+            vyaw *= .94;
+            yaw += dt*.09 + vyaw;
+            pitch += (targetPitch - pitch) * .04;
+        }
+
+        ctx.clearRect(0,0,W,H);
+
+        /* nebula glows */
+        let g = ctx.createRadialGradient(W*.2,H*.75,0,W*.2,H*.75,W*.5);
+        g.addColorStop(0,"rgba(59,130,246,.10)"); g.addColorStop(1,"rgba(59,130,246,0)");
+        ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+        g = ctx.createRadialGradient(W*.85,H*.25,0,W*.85,H*.25,W*.45);
+        g.addColorStop(0,"rgba(229,231,235,.07)"); g.addColorStop(1,"rgba(229,231,235,0)");
+        ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+        /* stars */
+        for(let i=0;i<stars.length;i++){
+            const s = stars[i];
+            const r = rot(s.x,s.y,s.z);
+            if(r.z*S + 120 < -FOV*.8) continue;
+            const q = proj(r);
+            const tw = .55 + Math.sin(time*1.4 + s.tw)*.35;
+            const a = Math.max(0,Math.min(1,q.k*.75)) * tw;
+            ctx.fillStyle = "rgba(229,231,235," + a.toFixed(3) + ")";
+            ctx.fillRect(q.x, q.y, s.size, s.size);
+        }
+
+        /* orbits */
+        planets.forEach(drawOrbit);
+
+        /* collect drawable bodies */
+        const items = [];
+
+        const sunR = rot(0,0,0);
+        items.push({type:"sun", z:sunR.z, q:proj(sunR)});
+
+        planets.forEach(function(p){
+            const w = planetPos(p,time);
+            const r = rot(w.x,w.y,w.z);
+            items.push({type:"planet", p:p, z:r.z, q:proj(r), r:r});
+        });
+
+        sats.forEach(function(s){
+            const a = s.a + time*s.sp;
+            const r = rot(s.r*Math.cos(a), s.y, s.r*Math.sin(a));
+            items.push({type:"sat", s:s, z:r.z, q:proj(r)});
+        });
+
+        items.sort(function(a,b){return b.z - a.z;});
+
+        hits = [];
+        const sunQ = proj(sunR);
+
+        items.forEach(function(it){
+
+            if(it.type === "sun"){
+                drawSun(it.q,time);
+                return;
+            }
+
+            if(it.type === "sat"){
+                ctx.fillStyle = "rgba(203,213,225," + Math.min(.9,it.q.k*.55) + ")";
+                ctx.beginPath();
+                ctx.arc(it.q.x,it.q.y,it.s.size*it.q.k*S*1.3,0,6.283);
+                ctx.fill();
+                return;
+            }
+
+            const p = it.p;
+            const R = p.size * S * it.q.k * 1.35;
+            let lx = sunQ.x - it.q.x, ly = sunQ.y - it.q.y;
+            const ll = Math.hypot(lx,ly) || 1; lx/=ll; ly/=ll;
+
+            const isHover = hover && hover.key === p.key;
+
+            if(p.ring) drawRing(it.q.x,it.q.y,R,false);
+            sphere(it.q.x,it.q.y,R*(isHover?1.14:1),p,lx,ly);
+            if(p.ring) drawRing(it.q.x,it.q.y,R,true);
+            if(p.moon){
+                const ma = time*2.4;
+                ctx.fillStyle = "#D5D9E0";
+                ctx.beginPath();
+                ctx.arc(it.q.x+Math.cos(ma)*R*2, it.q.y+Math.sin(ma)*R*.7, Math.max(1.8,R*.26), 0, 6.283);
+                ctx.fill();
+            }
+
+            if(isHover){
+                ctx.beginPath();
+                ctx.arc(it.q.x,it.q.y,R*1.5,0,6.283);
+                ctx.strokeStyle = "rgba(96,165,250,.8)";
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            /* label */
+            const near = Math.max(.55,Math.min(1,it.q.k));
+            ctx.textAlign = "center";
+            ctx.fillStyle = "rgba(255,255,255," + (isHover?1:.82*near) + ")";
+            ctx.font = "600 " + (12.5*Math.max(.9,S)) + "px Outfit, Arial, sans-serif";
+            ctx.fillText(p.name, it.q.x, it.q.y + R + (p.ring?26:18));
+            ctx.fillStyle = "rgba(147,180,230," + (isHover?1:.7*near) + ")";
+            ctx.font = "10px 'Space Mono', monospace";
+            ctx.fillText(isHover ? "CLICK FOR FACTS" : p.en.toUpperCase(), it.q.x, it.q.y + R + 31);
+
+            hits.push({key:p.key, x:it.q.x, y:it.q.y, r:Math.max(R*1.5,16), z:it.z});
+        });
+
+    }
+
+    function start(){
+        if(running) return;
+        running = true;
+        last = performance.now();
+        requestAnimationFrame(frame);
+    }
+
+    document.addEventListener("visibilitychange",function(){
+        if(document.hidden) running = false;
+        else if(isOpen) start();
+    });
+
+    /* interaction */
+    function pos(e){
+        const r = canvas.getBoundingClientRect();
+        return {x:e.clientX - r.left, y:e.clientY - r.top};
+    }
+
+    function pick(x,y){
+        let best = null;
+        hits.forEach(function(h){
+            if(Math.hypot(h.x-x,h.y-y) <= h.r){
+                if(!best || h.z < best.z) best = h;
+            }
+        });
+        return best;
+    }
+
+    canvas.addEventListener("pointerdown",function(e){
+        dragging = true; moved = 0;
+        const p = pos(e); lastX = p.x; lastY = p.y;
+        canvas.classList.add("dragging");
+        try{ canvas.setPointerCapture(e.pointerId); }catch(_){}
+    });
+
+    canvas.addEventListener("pointermove",function(e){
+        const p = pos(e);
+        mouse = p;
+        if(dragging){
+            const dx = p.x - lastX, dy = p.y - lastY;
+            moved += Math.abs(dx) + Math.abs(dy);
+            yaw += dx * .006;
+            vyaw = dx * .0008;
+            if(e.pointerType !== "touch"){
+                pitch = Math.max(-.2, Math.min(1.1, pitch + dy * .005));
+                targetPitch = pitch;
+            }
+            lastX = p.x; lastY = p.y;
+        }
+        const h = pick(p.x,p.y);
+        hover = h ? {key:h.key} : null;
+        canvas.style.cursor = h ? "pointer" : (dragging ? "grabbing" : "grab");
+    });
+
+    canvas.addEventListener("pointerup",function(e){
+        dragging = false;
+        canvas.classList.remove("dragging");
+        if(moved < 6){
+            const p = pos(e);
+            const h = pick(p.x,p.y);
+            if(h) showInfo(h.key);
+        }
+    });
+
+    const info = document.getElementById("aiInfo");
+    function showInfo(key){
+        const p = planets.find(function(x){return x.key===key;});
+        if(!p) return;
+        info.querySelector("h3").textContent = p.name;
+        info.querySelector("small").textContent = p.en.toUpperCase();
+        info.querySelector("p").textContent = p.fact;
+        info.classList.add("show");
+    }
+    window.hideAIInfo = function(){ info.classList.remove("show"); };
+
+    canvas.addEventListener("pointerleave",function(){
+        hover = null;
+    });
+
+})();
+
+</script>
+
+</body>
+</html>
